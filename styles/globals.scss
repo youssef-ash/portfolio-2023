@@ -1,0 +1,103 @@
+@import "normalize.css";
+
+$dark-blue: #13131d;
+$off-white: #e6f4f1;
+$cyan: #00a6b4;
+
+$font-path: "/fonts/";
+
+$fonts: (
+  "thin": (
+    "weight": 100,
+    "style": normal,
+  ),
+  "thinitalic": (
+    "weight": 100,
+    "style": italic,
+  ),
+  "extralight": (
+    "weight": 200,
+    "style": normal,
+  ),
+  "extralightitalic": (
+    "weight": 200,
+    "style": italic,
+  ),
+  "light": (
+    "weight": 300,
+    "style": normal,
+  ),
+  "lightitalic": (
+    "weight": 300,
+    "style": italic,
+  ),
+  "regular": (
+    "weight": 400,
+    "style": normal,
+  ),
+  "italic": (
+    "weight": 400,
+    "style": italic,
+  ),
+  "medium": (
+    "weight": 500,
+    "style": normal,
+  ),
+  "mediumitalic": (
+    "weight": 500,
+    "style": italic,
+  ),
+  "semibold": (
+    "weight": 600,
+    "style": normal,
+  ),
+  "semibolditalic": (
+    "weight": 600,
+    "style": italic,
+  ),
+  "bold": (
+    "weight": 700,
+    "style": normal,
+  ),
+  "bolditalic": (
+    "weight": 700,
+    "style": italic,
+  ),
+  "extrabold": (
+    "weight": 800,
+    "style": normal,
+  ),
+  "extrabolditalic": (
+    "weight": 800,
+    "style": italic,
+  ),
+  "black": (
+    "weight": 900,
+    "style": normal,
+  ),
+  "blackitalic": (
+    "weight": 900,
+    "style": italic,
+  ),
+);
+
+@each $name, $font in $fonts {
+  @font-face {
+    font-family: "Poppins";
+    src: url("#{$font-path}Poppins-#{$name}.ttf") format("truetype");
+    font-weight: map-get($font, "weight");
+    font-style: map-get($font, "style");
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins";
+  background-color: $dark-blue;
+  color: $off-white;
+}
