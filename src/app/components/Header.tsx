@@ -1,4 +1,3 @@
-import "@styles/globals.scss";
 import styles from "@styles/header.module.scss";
 import Link from "next/link";
 
