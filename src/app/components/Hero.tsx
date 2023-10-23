@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className={styles.container}>
+    <section id="home" className={styles.container}>
       <div className={styles.heroType}>
         <h1>I'm Youssef Ahmed</h1>
         <h2>
@@ -27,6 +27,7 @@ export default function Hero() {
             width={200}
             height={200}
             layout="responsive"
+            draggable={false}
           />
         </span>
       </div>
