@@ -1,122 +1,75 @@
-$dark-blue: #13131d;
 $off-white: #e6f4f1;
 $cyan: #00a6b4;
+$dark-blue: #13131d;
 
 $transition-time: 0.25s;
 
-$font-path: "/fonts/";
-
-$fonts: (
-  "thin": (
-    "weight": 100,
-    "style": normal,
-  ),
-  "thinitalic": (
-    "weight": 100,
-    "style": italic,
-  ),
-  "extralight": (
-    "weight": 200,
-    "style": normal,
-  ),
-  "extralightitalic": (
-    "weight": 200,
-    "style": italic,
-  ),
-  "light": (
-    "weight": 300,
-    "style": normal,
-  ),
-  "lightitalic": (
-    "weight": 300,
-    "style": italic,
-  ),
-  "regular": (
-    "weight": 400,
-    "style": normal,
-  ),
-  "italic": (
-    "weight": 400,
-    "style": italic,
-  ),
-  "medium": (
-    "weight": 500,
-    "style": normal,
-  ),
-  "mediumitalic": (
-    "weight": 500,
-    "style": italic,
-  ),
-  "semibold": (
-    "weight": 600,
-    "style": normal,
-  ),
-  "semibolditalic": (
-    "weight": 600,
-    "style": italic,
-  ),
-  "bold": (
-    "weight": 700,
-    "style": normal,
-  ),
-  "bolditalic": (
-    "weight": 700,
-    "style": italic,
-  ),
-  "extrabold": (
-    "weight": 800,
-    "style": normal,
-  ),
-  "extrabolditalic": (
-    "weight": 800,
-    "style": italic,
-  ),
-  "black": (
-    "weight": 900,
-    "style": normal,
-  ),
-  "blackitalic": (
-    "weight": 900,
-    "style": italic,
-  ),
+$font-path: "/fonts";
+$font-styles: (
+  (100, "thin", normal),
+  (100, "thinitalic", italic),
+  (200, "extralight", normal),
+  (200, "extralightitalic", italic),
+  (300, "light", normal),
+  (300, "lightitalic", italic),
+  (400, "regular", normal),
+  (400, "italic", italic),
+  (500, "medium", normal),
+  (500, "mediumitalic", italic),
+  (600, "semibold", normal),
+  (600, "semibolditalic", italic),
+  (700, "bold", normal),
+  (700, "bolditalic", italic),
+  (800, "extrabold", normal),
+  (800, "extrabolditalic", italic),
+  (900, "black", normal),
+  (900, "blackitalic", italic)
 );
 
-@each $name, $font in $fonts {
+@each $weight, $name, $style in $font-styles {
   @font-face {
     font-family: "Poppins";
-    src: url("#{$font-path}Poppins-#{$name}.ttf") format("truetype");
-    font-weight: map-get($font, "weight");
-    font-style: map-get($font, "style");
+    src: url("#{$font-path}/Poppins-#{$name}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
   }
 }
 
 @mixin Button(
   $bg-clr,
-  $text-clr,
-  $padding-block,
-  $padding-inline,
+  $txt-clr,
+  $padding,
   $border,
-  $border-radius
+  $border-rd,
+  $hvr-bg-clr,
+  $hvr-txt-clr,
+  $hvr-border: none,
+  $line-hgt: 1em
 ) {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  text-transform: capitalize;
+  font-family: inherit;
+  line-height: $line-hgt;
 
   background-color: $bg-clr;
-  color: $text-clr;
+  color: $txt-clr;
 
-  padding-block: $padding-block;
-  padding-inline: $padding-inline;
+  text-transform: capitalize;
+  white-space: nowrap;
 
+  padding: $padding;
   border: $border;
-  border-radius: $border-radius;
+  border-radius: $border-rd;
 
   cursor: pointer;
-  transition: background-color $transition-time;
+  transition: background-color $transition-time, color $transition-time;
 
   &:hover {
-    background-color: rgba(128, 128, 128, 0.4);
+    background-color: $hvr-bg-clr;
+    color: $hvr-txt-clr;
+
+    border: $hvr-border;
   }
 }
