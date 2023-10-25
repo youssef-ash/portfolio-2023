@@ -1,0 +1,83 @@
+@import "./utils.scss";
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: inherit;
+
+  background-color: $dark-blue;
+
+  padding: 1.2em 2em;
+
+  .themeButton {
+    @include Button(
+      transparent,
+      $off-white,
+      1em,
+      none,
+      100%,
+      $cyan,
+      $off-white
+    );
+  }
+
+  .list {
+    display: flex;
+    gap: 0.5em;
+
+    text-transform: capitalize;
+
+    > a {
+      font-family: "Poppins";
+      font-size: 0.9em;
+      font-weight: 600;
+      text-decoration: none;
+      color: inherit;
+
+      padding: 1em;
+
+      transition: color $transition-time;
+
+      &.active {
+        color: $cyan;
+      }
+
+      &:hover {
+        color: $cyan;
+      }
+    }
+  }
+
+  .ctaButton {
+    @include Button(
+      transparent,
+      $off-white,
+      0.8em 2em,
+      0.1em solid $cyan,
+      0.5em,
+      $cyan,
+      $dark-blue
+    );
+  }
+
+  /* Separator Bar */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    background-color: green;
+
+    width: 100%;
+    max-width: 160px;
+    height: 0.15em;
+
+    border-radius: 1em;
+
+    transform: translateX(-50%);
+  }
+}
