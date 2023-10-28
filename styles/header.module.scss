@@ -16,7 +16,8 @@
     @include Button(
       transparent,
       $off-white,
-      1em,
+      3em,
+      3em,
       none,
       100%,
       $cyan,
@@ -55,7 +56,8 @@
     @include Button(
       transparent,
       $off-white,
-      0.8em 2em,
+      7.8em,
+      2.8em,
       0.1em solid $cyan,
       0.5em,
       $cyan,

@@ -38,7 +38,8 @@ $font-styles: (
 @mixin Button(
   $bg-clr,
   $txt-clr,
-  $padding,
+  $width,
+  $height,
   $border,
   $border-rd,
   $hvr-bg-clr,
@@ -59,7 +60,9 @@ $font-styles: (
   text-transform: capitalize;
   white-space: nowrap;
 
-  padding: $padding;
+  width: $width;
+  height: $height;
+
   border: $border;
   border-radius: $border-rd;
 
