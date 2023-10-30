@@ -1,68 +1,92 @@
 @import "./utils.scss";
 
 .header {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: sticky;
+  top: 0;
 
   font-family: inherit;
 
+  display: flex;
+  justify-content: center;
+
   background-color: $dark-blue;
 
-  padding: 1.2em 2em;
+  width: 100%;
 
-  .themeButton {
-    @include Button(
-      transparent,
-      $off-white,
-      3em,
-      3em,
-      none,
-      100%,
-      $cyan,
-      $off-white
-    );
-  }
+  padding: 1.2em 0;
 
-  .list {
-    display: flex;
-    gap: 0.5em;
+  z-index: 2;
 
-    text-transform: capitalize;
+  > .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
 
-    > a {
-      font-family: "Poppins";
-      font-size: 0.9em;
-      font-weight: 600;
-      text-decoration: none;
-      color: inherit;
+    width: calc($content-width + 7em);
 
-      padding: 1em;
+    .themeButton {
+      justify-self: start;
 
-      transition: color $transition-time;
+      @include Button(
+        transparent,
+        $off-white,
+        3em,
+        3em,
+        none,
+        100%,
+        $cyan,
+        $off-white
+      );
+    }
 
-      &.active {
-        color: $cyan;
-      }
+    .list {
+      justify-self: center;
 
-      &:hover {
-        color: $cyan;
+      display: flex;
+      gap: 0.5em;
+
+      text-transform: capitalize;
+
+      > a {
+        font-family: "Poppins";
+        font-size: 0.9em;
+        font-weight: 600;
+        text-decoration: none;
+        color: inherit;
+
+        padding: 1em;
+
+        transition: color $transition-time;
+
+        &.active {
+          color: $cyan;
+        }
+
+        &:hover {
+          color: $cyan;
+        }
       }
     }
-  }
 
-  .ctaButton {
-    @include Button(
-      transparent,
-      $off-white,
-      7.8em,
-      2.8em,
-      0.1em solid $cyan,
-      0.5em,
-      $cyan,
-      $dark-blue
-    );
+    .ctaButton {
+      justify-self: end;
+
+      @include Button(
+        transparent,
+        $off-white,
+        7.8em,
+        2.7em,
+        0.1em solid $cyan,
+        0.25em,
+        $cyan,
+        $off-white,
+        $cyan,
+        2em
+      );
+
+      font-weight: 600;
+      text-transform: uppercase;
+    }
   }
 
   /* Separator Bar */
@@ -72,10 +96,10 @@
     bottom: 0;
     left: 50%;
 
-    background-color: green;
+    background-color: $off-white;
 
     width: 100%;
-    max-width: 160px;
+    max-width: calc($content-width + 12.5em);
     height: 0.15em;
 
     border-radius: 1em;
