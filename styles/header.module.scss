@@ -34,9 +34,21 @@
         3em,
         none,
         100%,
-        $cyan,
+        transparent,
         $off-white
       );
+
+      > svg {
+        fill: $off-white;
+
+        transition: fill $transition-time;
+      }
+
+      &:hover {
+        > svg {
+          fill: $cyan;
+        }
+      }
     }
 
     .list {
