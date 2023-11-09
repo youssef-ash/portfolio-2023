@@ -17,7 +17,6 @@ export default function Header() {
             <a href={"/contact"}>Contact</a>
           </ul>
         </nav>
-        <button className={styles.ctaButton}>Hire Me</button>
       </div>
     </header>
   );
