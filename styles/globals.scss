@@ -25,8 +25,14 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5em;
+
   width: 100%;
   max-width: $content-width;
+
+  padding-block: 5em;
 }
 
 @media (min-width: $media-query-width) {
