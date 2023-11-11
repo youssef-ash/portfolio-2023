@@ -1,5 +1,5 @@
 import styles from "@styles/hero.module.scss";
-import Image from "next/image";
+import HeroImage from "./utils/HeroImage";
 
 export default function Hero() {
   return (
@@ -21,14 +21,7 @@ export default function Hero() {
       </div>
       <div className={styles.imageContainer}>
         <span className={styles.imageBackground}>
-          <Image
-            src={"/images/avatar.png"}
-            alt="Avatar of Youssef"
-            width={200}
-            height={200}
-            layout="responsive"
-            draggable={false}
-          />
+          <HeroImage />
         </span>
       </div>
     </section>
