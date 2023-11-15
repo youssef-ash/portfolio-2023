@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
 
-  background-color: $dark-blue;
+  background-color: inherit;
 
   width: 100%;
 
@@ -18,9 +18,9 @@
   z-index: 2;
 
   > .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    place-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     width: calc($content-width + 7em);
 
@@ -52,8 +52,6 @@
     }
 
     .list {
-      justify-self: center;
-
       display: flex;
       gap: 0.5em;
 
@@ -85,15 +83,13 @@
 
       @include Button(
         transparent,
-        $off-white,
         7.8em,
         2.7em,
         0.1em solid $cyan,
         0.25em,
         $cyan,
         $off-white,
-        $cyan,
-        2em
+        $cyan
       );
 
       font-weight: 600;
@@ -117,5 +113,16 @@
     border-radius: 1em;
 
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: $media-query-width) {
+  .header {
+    &::after {
+      width: $content-width;
+    }
+    > .container {
+      width: $content-width;
+    }
   }
 }
