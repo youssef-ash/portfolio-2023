@@ -1,0 +1,20 @@
+@import "./utils.scss";
+
+.mouseFollower {
+  position: fixed;
+
+  background-color: $cyan;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  filter: blur(25px);
+
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out, top 0.15s ease, left 0.15s ease;
+}
