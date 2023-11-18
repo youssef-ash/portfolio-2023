@@ -1,0 +1,158 @@
+@import "./utils.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.7em;
+
+  > .title {
+    @include SectionTitle;
+
+    opacity: 0;
+
+    animation: pop-down 0.7s 2.5s ease forwards;
+  }
+
+  > .projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+
+    width: 100%;
+
+    > .project {
+      position: relative;
+
+      display: flex;
+      align-self: flex-start;
+
+      background-color: $bluish-gray;
+
+      padding: 3em 2em;
+      border-radius: 0.5em;
+      outline: 0.15em solid transparent;
+
+      opacity: 0;
+      transition: outline $transition-time;
+      animation: pop-down 0.7s ease forwards;
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation-delay: calc($animation-delay + 0.5s * $i);
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        outline-color: $cyan;
+
+        img {
+          scale: 1.05;
+        }
+      }
+
+      > .type {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8em;
+
+        margin: 0 12.9em 0 0;
+        width: 27ch;
+
+        > h4 {
+          font-size: 1.3em;
+          font-weight: 600;
+          line-height: 0.8em;
+          letter-spacing: 0.03em;
+        }
+
+        > p {
+          font-size: 0.75em;
+          font-weight: 300;
+          line-height: 1.5em;
+        }
+
+        > .buttonsContainer {
+          $button-width: 8em;
+          $button-height: 2.6em;
+
+          display: flex;
+          gap: 0.7em;
+          font-size: 0.75em;
+
+          > .liveButton {
+            @include Button(
+              $cyan,
+              $button-width,
+              $button-height,
+              0.15em solid transparent,
+              0.3em,
+              transparent,
+              $off-white,
+              0.15em solid $cyan
+            );
+          }
+
+          > .githubButton {
+            @include Button(
+              transparent,
+              $button-width,
+              $button-height,
+              0.15em solid $cyan,
+              0.3em,
+              $cyan,
+              $off-white,
+              0.15em solid $cyan
+            );
+          }
+        }
+      }
+
+      > .imgContainer {
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+        width: 25em;
+        height: 12.5em;
+
+        transform: translate(50%, -50%);
+
+        > img {
+          border-radius: 0.5em;
+
+          transition: scale $transition-time;
+        }
+      }
+
+      &.flipped {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+
+        > .type {
+          margin: 0 0 0 12.9em;
+        }
+
+        > .imgContainer {
+          left: 0;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+
+@keyframes pop-down {
+  0% {
+    top: -2em;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
