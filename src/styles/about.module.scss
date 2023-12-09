@@ -1,0 +1,155 @@
+@import "./utils.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  > .title {
+    @include SectionTitle;
+  }
+
+  > .typeContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5em;
+
+    padding-left: 2.2em;
+    margin-top: 2.5em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.4em;
+
+      background-image: url("/line.svg");
+      background-size: contain;
+      background-repeat: repeat-y;
+      background-size: 100% 1.85em;
+
+      width: 0.29em;
+      height: 95%;
+
+      @media (max-width: $media-query-width) {
+        left: 0.45em;
+      }
+    }
+
+    > p {
+      position: relative;
+
+      font-size: 0.85em;
+      font-weight: 400;
+      line-height: 1.75em;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0.1em;
+        left: -2.55em;
+        background-color: $cyan;
+
+        width: 1.25em;
+        height: 1.25em;
+
+        border-radius: 100%;
+
+        z-index: 1;
+      }
+
+      &:nth-child(2)::after {
+        top: 0.3em;
+        box-shadow: 0 0.4em 0 $dark-blue-light-mode,
+          0 -0.4em 0 $dark-blue-light-mode;
+      }
+
+      > span {
+        font-weight: 700;
+        text-decoration: underline;
+        color: $cyan;
+
+        cursor: pointer;
+      }
+    }
+
+    > h4 {
+      @include SectionTitle("sub");
+
+      margin-top: 0.8em;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0.1em;
+        left: -1.95em;
+        background-color: $cyan;
+
+        width: 0.966em;
+        height: 0.966em;
+
+        border-radius: 100%;
+
+        z-index: 1;
+      }
+    }
+  }
+  > .skillsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+    gap: 0.95em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    padding-inline: 2.2em;
+    margin-top: 1.8em;
+
+    > span {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8em;
+
+      font-size: 0.9em;
+
+      background-color: $bluish-gray;
+
+      width: 8.5em;
+      height: 8.5em;
+
+      border-radius: 0.8em;
+      outline: 0.2em solid transparent;
+
+      transition: outline $transition-time;
+
+      &:hover {
+        outline-color: $cyan;
+      }
+
+      > img {
+        position: absolute;
+        top: 50%;
+
+        width: 100%;
+        width: min-content;
+        height: 3.4em;
+
+        transform: translateY(-80%);
+      }
+
+      > span {
+        position: absolute;
+        bottom: 1.4em;
+      }
+    }
+  }
+}
