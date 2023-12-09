@@ -13,8 +13,8 @@ export default function Header() {
           <ul className={styles.list}>
             <a href={"#home"}>Home</a>
             <a href={"#work"}>Work</a>
-            <a href={"/about"}>About</a>
-            <a href={"/contact"}>Contact</a>
+            <a href={"#about"}>About</a>
+            <a href={"#contact"}>Contact</a>
           </ul>
         </nav>
       </div>

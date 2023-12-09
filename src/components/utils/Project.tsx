@@ -1,6 +1,6 @@
 import styles from "@styles/work.module.scss";
 
-import { ProjectImagePlacementT } from "@utils/types";
+import { ProjectImagePlacementT } from "../../utils/types";
 import Image, { StaticImageData } from "next/image";
 
 interface ProjectProps {

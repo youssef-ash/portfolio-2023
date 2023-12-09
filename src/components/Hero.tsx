@@ -10,9 +10,8 @@ export default function Hero() {
           A Professional Web <br /> Developer
         </h2>
         <p>
-          I design and develop websites that are visually <br /> appealing,
-          user-friendly, and optimized for <br />
-          performance.
+          I design and develop websites that are visually appealing,
+          user-friendly, and optimized for performance.
         </p>
         <div className={styles.buttonsContainer}>
           <button className={styles.main}>View My Work</button>
