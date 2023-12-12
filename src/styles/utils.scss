@@ -71,7 +71,7 @@ $font-styles: (
   border-radius: $border-rd;
 
   cursor: pointer;
-  transition: background-color $transition-time, color $transition-time;
+  transition: background-color $transition-time;
 
   &:hover {
     background-color: $hvr-bg-clr;

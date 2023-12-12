@@ -1,13 +1,23 @@
 import styles from "@styles/header.module.scss";
+import { HeaderProps } from "@utils/types";
 
-import { BsSunFill } from "react-icons/bs";
+import { BsSunFill, BsFillMoonFill } from "react-icons/bs";
 
-export default function Header() {
+export default function Header({ theme, setTheme }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <button className={styles.themeButton}>
-          <BsSunFill size={"1.5em"} />
+        <button
+          className={styles.themeButton}
+          onClick={() =>
+            setTheme((prev) => (prev === "light" ? "dark" : "light"))
+          }
+        >
+          {theme === "light" ? (
+            <BsFillMoonFill size={"1.5em"} />
+          ) : (
+            <BsSunFill size={"1.5em"} />
+          )}
         </button>
         <nav>
           <ul className={styles.list}>

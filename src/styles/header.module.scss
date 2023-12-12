@@ -13,7 +13,7 @@
 
   width: 100%;
 
-  padding: 1.2em 0;
+  padding: 1em 0;
 
   z-index: 2;
 
@@ -29,13 +29,13 @@
 
       @include Button(
         transparent,
-        $off-white,
         3em,
         3em,
         none,
         100%,
         transparent,
-        $off-white
+        red,
+        none
       );
 
       > svg {
@@ -65,8 +65,6 @@
         color: inherit;
 
         padding: 1em;
-
-        transition: color $transition-time;
 
         &.active {
           color: $cyan;

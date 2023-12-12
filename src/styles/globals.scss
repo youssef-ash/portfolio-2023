@@ -7,6 +7,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -18,6 +22,8 @@ body {
   background-color: $off-white;
   color: $dark-blue-light-mode;
 
+  transition: background-color $transition-time, color $transition-time;
+
   &.dark {
     background-color: $dark-blue;
     color: $off-white;
@@ -27,7 +33,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  gap: 4.5em;
+  // gap: 4.5em;
 
   width: 100%;
   max-width: $content-width;
