@@ -129,3 +129,16 @@ $font-styles: (
     top: 0;
   }
 }
+
+@mixin Scrollbar($width: 0.6em, $height: 0.6em) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $cyan;
+
+    border-radius: 1em;
+  }
+}
