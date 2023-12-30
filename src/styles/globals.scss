@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  @include Scrollbar();
   display: flex;
   flex-direction: column;
   justify-content: center;
