@@ -42,13 +42,13 @@ $font-styles: (
 }
 
 @mixin Button(
-  $bg-clr,
-  $width,
-  $height,
-  $border,
-  $border-rd,
-  $hvr-bg-clr,
-  $hvr-txt-clr,
+  $bg-clr: $cyan,
+  $width: 100%,
+  $height: 2em,
+  $border: none,
+  $border-rd: 0,
+  $hvr-bg-clr: null,
+  $hvr-txt-clr: null,
   $hvr-border: none
 ) {
   display: flex;
@@ -130,16 +130,16 @@ $font-styles: (
   }
 }
 
-@mixin Scrollbar($width: 1.3em, $height: 1.3em) {
+@mixin Scrollbar($size: 1.4em, $border-size: 0.45em) {
   &::-webkit-scrollbar {
-    width: $width;
-    height: $height;
+    width: $size;
+    height: $size;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: $cyan;
 
-    border: 0.4em solid transparent;
+    border: $border-size solid transparent;
     background-clip: content-box;
     border-radius: 1em;
   }
