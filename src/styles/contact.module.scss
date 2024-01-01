@@ -1,0 +1,147 @@
+@import "./utils.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-top: -0.5em;
+
+  > .title {
+    @include SectionTitle;
+  }
+
+  > .subContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+
+    width: 100%;
+    background-color: $bluish-gray;
+
+    padding: 4em;
+    margin-top: 2.5em;
+    margin-bottom: 5em;
+    border-radius: 0.5em;
+
+    > .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.7em;
+
+      width: 100%;
+
+      padding-inline: 7em;
+
+      > .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+
+        > label {
+          font-weight: 500;
+        }
+
+        > input,
+        textarea {
+          font-weight: 500;
+
+          background-color: $off-white;
+
+          padding: 0.55em 0.85em;
+          border: none;
+          border-radius: 0.3em;
+
+          &:focus {
+            outline: 3px auto $cyan;
+          }
+        }
+
+        > textarea {
+          @include Scrollbar(1em, 0.3em);
+
+          min-height: 10em;
+
+          resize: none;
+        }
+      }
+
+      > button {
+        @include Button(
+          $cyan,
+          100%,
+          3em,
+          none,
+          0.3em,
+          transparent,
+          $off-white,
+          0.15em solid $cyan
+        );
+        gap: 0.5em;
+        margin-top: 0.5em;
+      }
+    }
+
+    > .linksContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5em;
+
+      .link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      > .separator {
+        position: relative;
+
+        text-align: center;
+        font-style: italic;
+        font-weight: 500;
+
+        width: 100%;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+
+          background-color: $cyan;
+
+          width: 45%;
+          height: 0.3em;
+
+          border-radius: 1em;
+
+          transform: translateY(-80%);
+        }
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          right: 0;
+        }
+      }
+
+      > .linksGroup {
+        display: flex;
+        gap: 4em;
+
+        margin-inline: 2em;
+      }
+    }
+  }
+}
