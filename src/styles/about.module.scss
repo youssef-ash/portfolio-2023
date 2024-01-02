@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: flex-start;
 
+  margin-top: -0.5em;
+
   > .title {
     @include SectionTitle;
   }
@@ -15,7 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5em;
+    gap: 1.6em;
 
     padding-left: 2.2em;
     margin-top: 2.5em;
@@ -45,11 +47,13 @@
       font-weight: 400;
       line-height: 1.75em;
 
+      transition: color $transition-time;
+
       &::after {
         content: "";
         position: absolute;
         top: 0.1em;
-        left: -2.55em;
+        left: -2.56em;
         background-color: $cyan;
 
         width: 1.25em;
@@ -61,30 +65,27 @@
       }
 
       &:nth-child(2)::after {
-        top: 0.3em;
-        box-shadow: 0 0.4em 0 $dark-blue-light-mode,
-          0 -0.4em 0 $dark-blue-light-mode;
+        top: 0.25em;
+        box-shadow: 0 0.4em 0 $dark-blue, 0 -0.4em 0 $dark-blue;
       }
 
-      > span {
+      > a {
         font-weight: 700;
-        text-decoration: underline;
+        text-wrap: nowrap;
         color: $cyan;
-
-        cursor: pointer;
       }
     }
 
     > h4 {
       @include SectionTitle("sub");
 
-      margin-top: 0.8em;
+      margin-top: 0.7em;
 
       &::before {
         content: "";
         position: absolute;
-        bottom: 0.1em;
-        left: -1.95em;
+        bottom: 0.15em;
+        left: -2em;
         background-color: $cyan;
 
         width: 0.966em;
@@ -96,6 +97,7 @@
       }
     }
   }
+
   > .skillsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
@@ -110,6 +112,8 @@
 
     padding-inline: 2.2em;
     margin-top: 1.8em;
+
+    transition: color $transition-time;
 
     > span {
       position: relative;
@@ -138,12 +142,13 @@
       > img {
         position: absolute;
         top: 50%;
+        top: 0;
 
         width: 100%;
         width: min-content;
         height: 3.4em;
 
-        transform: translateY(-80%);
+        transform: translateY(45%);
       }
 
       > span {
