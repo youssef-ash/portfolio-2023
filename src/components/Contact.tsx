@@ -14,13 +14,15 @@ export default function Contact() {
       <h3 className={styles.title}>Contact Me</h3>
       <div className={styles.subContainer}>
         <form className={styles.form}>
-          <div className={styles.field}>
-            <label htmlFor="name">Your name:</label>
-            <input id="name"></input>
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="email">Your email:</label>
-            <input id="email"></input>
+          <div className={styles.fieldGroup}>
+            <div className={styles.field}>
+              <label htmlFor="name">Your name:</label>
+              <input id="name"></input>
+            </div>
+            <div className={styles.field}>
+              <label htmlFor="email">Your email:</label>
+              <input id="email"></input>
+            </div>
           </div>
           <div className={styles.field}>
             <label htmlFor="message">Your message:</label>
