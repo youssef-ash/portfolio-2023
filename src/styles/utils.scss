@@ -73,11 +73,21 @@ $font-styles: (
   cursor: pointer;
   transition: background-color $transition-time, color $transition-time;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: $hvr-bg-clr;
     color: $hvr-txt-clr;
 
     border: $hvr-border;
+  }
+
+  &:disabled {
+    background-color: rgb(100, 100, 100);
+    color: rgb(175, 175, 175);
+
+    border: none;
+
+    opacity: 0.8;
+    cursor: default;
   }
 }
 

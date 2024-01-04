@@ -30,8 +30,12 @@ export default function Project({
         <h4>{title}</h4>
         <p>{description}</p>
         <div className={styles.buttonsContainer}>
-          <button className={styles.liveButton}>Live Site</button>
-          <button className={styles.githubButton}>Code</button>
+          <button className={styles.liveButton} disabled={liveLink === ""}>
+            Live Site
+          </button>
+          <button className={styles.githubButton} disabled={githubLink === ""}>
+            Code
+          </button>
         </div>
       </span>
       <span className={styles.imgContainer}>
