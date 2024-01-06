@@ -1,5 +1,5 @@
-import styles from "@styles/about.module.scss";
 import Skill from "@componentUtils/Skill";
+import styles from "@styles/about.module.scss";
 
 export default function About() {
   const skills = [
@@ -11,6 +11,7 @@ export default function About() {
     "Next.js",
     "Redux",
     "SASS",
+    "Node.js",
     "PostgreSQL",
     "Git",
   ].map((skill) => (
