@@ -1,5 +1,5 @@
+import HeroImage from "@componentUtils/HeroImage";
 import styles from "@styles/hero.module.scss";
-import HeroImage from "./utils/HeroImage";
 
 export default function Hero() {
   return (
@@ -14,7 +14,9 @@ export default function Hero() {
           user-friendly, and optimized for performance.
         </p>
         <div className={styles.buttonsContainer}>
-          <button className={styles.main}>View My Work</button>
+          <a className={styles.main} href="#work" tabIndex={0}>
+            View My Work
+          </a>
           <button className={styles.secondary}>Download CV</button>
         </div>
       </div>
