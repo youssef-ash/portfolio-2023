@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import About from "./About";
-import Header from "./Header";
-import Hero from "./Hero";
-import Work from "./Work";
+import Header from "@components/Header";
+import Hero from "@components/Hero";
+import Work from "@components/Work";
+import About from "@components/About";
+import Contact from "@components/Contact";
 import MouseFollower from "@componentUtils/MouseFollower";
 import { Theme } from "@utils/types";
 
@@ -31,6 +32,7 @@ export default function Home() {
         <Hero />
         <Work />
         <About />
+        <Contact />
       </main>
       <MouseFollower />
     </body>
