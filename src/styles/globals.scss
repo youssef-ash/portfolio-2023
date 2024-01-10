@@ -12,6 +12,9 @@ html {
 }
 
 body {
+  --bg: #e6f4f1;
+  --card-bg: #ceeae4;
+
   @include Scrollbar();
   display: flex;
   flex-direction: column;
@@ -23,9 +26,12 @@ body {
   background-color: $off-white;
   color: $dark-blue-light-mode;
 
-  transition: background-color $transition-time, color $transition-time;
+  transition: background-color $transition-time;
 
   &.dark {
+    --bg: #13131d;
+    --card-bg: #202032;
+
     background-color: $dark-blue;
     color: $off-white;
   }
@@ -37,13 +43,17 @@ main {
 
   width: 100%;
   max-width: $content-width;
+
+  @media (max-width: $small-mq-width) {
+    max-width: $small-content-width;
+  }
 }
 
 section {
-  padding-top: 7em;
+  padding-top: 6.5em;
 }
 
-@media (min-width: $media-query-width) {
+@media (min-width: $medium-mq-width) {
   body {
     font-size: 16px;
   }
