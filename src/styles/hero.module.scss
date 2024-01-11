@@ -8,7 +8,19 @@
   width: 100%;
   height: 100%;
 
+  padding-top: 10em;
+
+  @media (max-width: $small-mq-width) {
+    flex-direction: column-reverse;
+    gap: 2em;
+
+    padding-top: 8em;
+  }
+
   > .heroType {
+    display: flex;
+    flex-direction: column;
+
     font-family: "Poppins";
     text-transform: uppercase;
 
@@ -24,7 +36,11 @@
       margin: 0 0 0.1em 0;
 
       opacity: 0;
-      animation: pop-from-left 1s $animation-delay ease forwards;
+      animation: pop-from-right 1s $animation-delay ease forwards;
+
+      @media (max-width: $small-mq-width) {
+        animation: pop-from-top 1s $animation-delay ease forwards;
+      }
     }
 
     > h2 {
@@ -38,7 +54,13 @@
       margin: 0 0 0.2em 0;
 
       opacity: 0;
-      animation: pop-from-left 1s calc(0.5s + $animation-delay) ease forwards;
+      animation: pop-from-right 1s calc(0.5s + $animation-delay) ease forwards;
+
+      @media (max-width: $small-mq-width) {
+        animation: pop-from-top 1s calc(0.5s + $animation-delay) ease forwards;
+      }
+
+      transition: color $transition-time;
     }
 
     > p {
@@ -50,12 +72,16 @@
       letter-spacing: 0.07em;
       text-wrap: balance;
 
-      color: white;
-
       margin: 0 0 1em 0;
 
       opacity: 0;
-      animation: pop-from-left-p 0.7s calc(1s + $animation-delay) ease forwards;
+      animation: pop-from-right-p 0.7s calc(1s + $animation-delay) ease forwards;
+
+      transition: color $transition-time;
+
+      @media (max-width: $small-mq-width) {
+        animation: pop-from-top-p 0.7s calc(1s + $animation-delay) ease forwards;
+      }
     }
 
     > .buttonsContainer {
@@ -75,19 +101,23 @@
       > .main {
         @include Button(
           $cyan,
+          $off-white,
           $button-width,
           $button-height,
           0.15em solid transparent,
           0.35em,
           transparent,
-          $off-white,
+          inherit,
           0.15em solid $cyan
         );
+
+        text-decoration: none;
       }
 
       > .secondary {
         @include Button(
           transparent,
+          inherit,
           $button-width,
           $button-height,
           0.15em solid $cyan,
@@ -96,12 +126,53 @@
           $off-white,
           0.15em solid $cyan
         );
+
+        font-weight: 500;
+      }
+    }
+
+    @media (max-width: $small-mq-width) {
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      > h1 {
+        margin: 0 0 0.18em 0;
+      }
+
+      > h2 {
+        line-height: 1.1em;
+      }
+
+      > p {
+        text-wrap: unset;
+        font-size: 0.75em;
+        line-height: 1.5em;
+
+        width: 30em;
+
+        margin: 0 0 1.7em 0;
+      }
+
+      > .buttonsContainer {
+        gap: 1.1em;
+
+        > .main,
+        .secondary {
+          height: 3.45em;
+        }
       }
     }
   }
 
   > .imageContainer {
     animation: scale-up 1s ease;
+
+    @media (max-width: $small-mq-width) {
+      font-size: 1.1em;
+    }
+
     > .imageBackground {
       position: relative;
       display: flex;
@@ -127,7 +198,7 @@
   }
 }
 
-@keyframes pop-from-left {
+@keyframes pop-from-right {
   0% {
     right: -2rem;
   }
@@ -137,12 +208,32 @@
   }
 }
 
-@keyframes pop-from-left-p {
+@keyframes pop-from-right-p {
   0% {
     right: -2rem;
   }
   100% {
     right: 0;
+    opacity: 0.55;
+  }
+}
+
+@keyframes pop-from-top {
+  0% {
+    top: -1rem;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes pop-from-top-p {
+  0% {
+    top: -1rem;
+  }
+  100% {
+    top: 0;
     opacity: 0.55;
   }
 }
