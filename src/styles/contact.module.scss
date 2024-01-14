@@ -17,29 +17,50 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4em;
+    gap: 3em;
+
+    background-color: var(--card-bg);
 
     width: 100%;
-    background-color: $bluish-gray;
 
-    padding: 4em;
-    margin-top: 2.5em;
+    padding: 3rem 0;
+    margin-top: 2em;
     margin-bottom: 5em;
     border-radius: 0.5em;
+
+    @media (max-width: $small-mq-width) {
+      margin-bottom: 2em;
+    }
+
+    transition: background-color $transition-time;
 
     > .form {
       display: flex;
       flex-direction: column;
-      gap: 1.7em;
+      gap: 1em;
 
       width: 100%;
 
-      padding-inline: 7em;
+      padding-inline: 8em;
 
-      > .field {
+      > .fieldGroup {
+        display: flex;
+        @media (max-width: $small-mq-width) {
+          flex-direction: column;
+        }
+        gap: 1em;
+      }
+
+      .field {
         display: flex;
         flex-direction: column;
-        gap: 0.6em;
+        gap: 0.5em;
+
+        font-size: 0.95em;
+
+        width: 100%;
+
+        transition: color $transition-time;
 
         > label {
           font-weight: 500;
@@ -47,9 +68,12 @@
 
         > input,
         textarea {
+          font-size: 0.9em;
           font-weight: 500;
 
           background-color: $off-white;
+
+          min-width: 0;
 
           padding: 0.55em 0.85em;
           border: none;
@@ -63,7 +87,7 @@
         > textarea {
           @include Scrollbar(1em, 0.3em);
 
-          min-height: 10em;
+          min-height: 8.5em;
 
           resize: none;
         }
@@ -72,16 +96,20 @@
       > button {
         @include Button(
           $cyan,
+          inherit,
           100%,
-          3em,
+          2.7em,
           none,
           0.3em,
           transparent,
-          $off-white,
+          inherit,
           0.15em solid $cyan
         );
         gap: 0.5em;
-        margin-top: 0.5em;
+
+        font-size: 0.9em;
+
+        margin-top: 0.3em;
       }
     }
 
@@ -92,14 +120,28 @@
       align-items: center;
       gap: 2.5em;
 
+      font-size: 0.85em;
+
       .link {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.5em;
 
+        color: inherit;
+
         text-decoration: underline;
         cursor: pointer;
+
+        transition: color $transition-time;
+
+        &:hover {
+          color: $cyan;
+        }
+
+        > a {
+          color: inherit;
+        }
       }
 
       > .separator {
@@ -110,6 +152,8 @@
         font-weight: 500;
 
         width: 100%;
+
+        transition: color $transition-time;
 
         &::before,
         &::after {
@@ -124,7 +168,7 @@
 
           border-radius: 1em;
 
-          transform: translateY(-80%);
+          transform: translateY(-60%);
         }
 
         &::before {
@@ -140,7 +184,7 @@
         display: flex;
         gap: 4em;
 
-        margin-inline: 2em;
+        margin-inline: 3.2em;
       }
     }
   }
