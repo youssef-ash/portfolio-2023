@@ -1,21 +1,25 @@
 "use client";
 
-import Image from "next/image";
-import Avatar from "/public/images/avatar.png";
+import { motion } from "framer-motion";
 
 export default function HeroImage() {
   return (
-    <Image
-      src={Avatar}
+    <motion.img
+      src={"/images/avatar.png"}
       alt="Avatar of Youssef"
-      // width={200}
-      // height={200}
-      fill={true}
-      sizes=""
       draggable={false}
-      // onLoadingComplete={() => console.log("Loaded")}
-      quality={100}
-      priority
+      fetchPriority="high"
+      initial={{ opacity: 0, y: "7em" }}
+      whileInView={{ opacity: 1, y: "1.72em" }}
+      transition={{
+        type: "spring",
+        bounce: 0.4,
+        ease: "easeInOut",
+        duration: 2.2,
+        delay: 1,
+        opacity: { duration: 0.8, delay: 1 },
+      }}
+      viewport={{ once: true }}
     />
   );
 }

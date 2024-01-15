@@ -25,7 +25,6 @@
     text-transform: uppercase;
 
     > h1 {
-      position: relative;
       font-family: inherit;
       font-size: 2.75em;
       font-weight: 700;
@@ -34,17 +33,9 @@
       color: $cyan;
 
       margin: 0 0 0.1em 0;
-
-      opacity: 0;
-      animation: pop-from-right 1s $animation-delay ease forwards;
-
-      @media (max-width: $small-mq-width) {
-        animation: pop-from-top 1s $animation-delay ease forwards;
-      }
     }
 
     > h2 {
-      position: relative;
       font-family: inherit;
       font-size: 2.13em;
       font-weight: 700;
@@ -53,18 +44,10 @@
 
       margin: 0 0 0.2em 0;
 
-      opacity: 0;
-      animation: pop-from-right 1s calc(0.5s + $animation-delay) ease forwards;
-
-      @media (max-width: $small-mq-width) {
-        animation: pop-from-top 1s calc(0.5s + $animation-delay) ease forwards;
-      }
-
       transition: color $transition-time;
     }
 
     > p {
-      position: relative;
       font-family: inherit;
       font-size: 0.7em;
       font-weight: 300;
@@ -74,14 +57,7 @@
 
       margin: 0 0 1em 0;
 
-      opacity: 0;
-      animation: pop-from-right-p 0.7s calc(1s + $animation-delay) ease forwards;
-
       transition: color $transition-time;
-
-      @media (max-width: $small-mq-width) {
-        animation: pop-from-top-p 0.7s calc(1s + $animation-delay) ease forwards;
-      }
     }
 
     > .buttonsContainer {
@@ -94,9 +70,6 @@
       gap: 0.8em;
 
       font-size: 0.7em;
-
-      opacity: 0;
-      animation: fade-in 0.8s calc(1.5s + $animation-delay) ease forwards;
 
       > .main {
         @include Button(
@@ -167,8 +140,6 @@
   }
 
   > .imageContainer {
-    animation: scale-up 1s ease;
-
     @media (max-width: $small-mq-width) {
       font-size: 1.1em;
     }
@@ -188,75 +159,10 @@
 
       > img {
         user-select: none;
-        opacity: 0;
 
         filter: drop-shadow(5px 5px 7px rgba(0, 0, 0, 0.474))
           drop-shadow(-5px 5px 7px rgba(0, 0, 0, 0.474));
-        animation: pop-up 1.5s calc(0.2s + $animation-delay) forwards;
       }
     }
-  }
-}
-
-@keyframes pop-from-right {
-  0% {
-    right: -2rem;
-  }
-  100% {
-    right: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes pop-from-right-p {
-  0% {
-    right: -2rem;
-  }
-  100% {
-    right: 0;
-    opacity: 0.55;
-  }
-}
-
-@keyframes pop-from-top {
-  0% {
-    top: -1rem;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes pop-from-top-p {
-  0% {
-    top: -1rem;
-  }
-  100% {
-    top: 0;
-    opacity: 0.55;
-  }
-}
-
-@keyframes scale-up {
-  0% {
-    scale: 0;
-  }
-  100% {
-    scale: 1;
-  }
-}
-
-@keyframes pop-up {
-  0% {
-    opacity: 0;
-    top: 7em;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    top: 1.65em;
   }
 }
