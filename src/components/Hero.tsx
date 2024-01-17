@@ -40,7 +40,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{
             type: "spring",
-            bounce: 0.4,
+            bounce: 0.3,
             ease: "easeInOut",
             duration: 1.8,
             delay: 1.6,
@@ -61,10 +61,18 @@ export default function Hero() {
           }}
           viewport={{ once: true }}
         >
-          <a className={styles.main} href="#work" tabIndex={0}>
+          <a className={styles.main} href="#work">
             View My Work
           </a>
-          <button className={styles.secondary}>Download CV</button>
+          <a
+            className={styles.secondary}
+            href="/Youssef_Ahmed_Resume.pdf"
+            download="Youssef_Ahmed_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download CV
+          </a>
         </motion.div>
       </div>
       <motion.div
