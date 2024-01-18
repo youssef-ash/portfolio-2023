@@ -1,190 +1,197 @@
 @import "./utils.scss";
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  margin-top: -1.5em;
 
-  margin-top: -0.5em;
-
-  > .title {
-    @include SectionTitle;
-  }
-
-  > .subContainer {
+  > .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 3em;
-
-    background-color: var(--card-bg);
-
-    width: 100%;
-
-    padding: 3rem 0;
-    margin-top: 2em;
-    margin-bottom: 5em;
-    border-radius: 0.5em;
-
-    @media (max-width: $small-mq-width) {
-      margin-bottom: 2em;
+    align-items: flex-start;
+    > .title {
+      @include SectionTitle;
     }
 
-    transition: background-color $transition-time;
-
-    > .form {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-
-      width: 100%;
-
-      padding-inline: 8em;
-
-      > .fieldGroup {
-        display: flex;
-        @media (max-width: $small-mq-width) {
-          flex-direction: column;
-        }
-        gap: 1em;
-      }
-
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
-
-        font-size: 0.95em;
-
-        width: 100%;
-
-        transition: color $transition-time;
-
-        > label {
-          font-weight: 500;
-        }
-
-        > input,
-        textarea {
-          font-size: 0.9em;
-          font-weight: 500;
-
-          background-color: $off-white;
-
-          min-width: 0;
-
-          padding: 0.55em 0.85em;
-          border: none;
-          border-radius: 0.3em;
-
-          &:focus {
-            outline: 3px auto $cyan;
-          }
-        }
-
-        > textarea {
-          @include Scrollbar(1em, 0.3em);
-
-          min-height: 8.5em;
-
-          resize: none;
-        }
-      }
-
-      > button {
-        @include Button(
-          $cyan,
-          inherit,
-          100%,
-          2.7em,
-          none,
-          0.3em,
-          transparent,
-          inherit,
-          0.15em solid $cyan
-        );
-        gap: 0.5em;
-
-        font-size: 0.9em;
-
-        margin-top: 0.3em;
-      }
-    }
-
-    > .linksContainer {
+    > .subContainer {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 2.5em;
+      gap: 3em;
 
-      font-size: 0.85em;
+      background-color: var(--card-bg);
 
-      .link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5em;
+      width: 100%;
 
-        color: inherit;
+      padding: 3rem 0;
+      margin-top: 2em;
+      margin-bottom: 5em;
+      border-radius: 0.5em;
 
-        text-decoration: underline;
-        cursor: pointer;
-
-        transition: color $transition-time;
-
-        &:hover {
-          color: $cyan;
-        }
-
-        > a {
-          color: inherit;
-        }
+      @media (max-width: $small-mq-width) {
+        margin-bottom: 2em;
       }
 
-      > .separator {
-        position: relative;
+      transition: background-color $transition-time;
 
-        text-align: center;
-        font-style: italic;
-        font-weight: 500;
+      > .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
 
         width: 100%;
 
-        transition: color $transition-time;
+        padding-inline: 8em;
 
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-
-          background-color: $cyan;
-
-          width: 45%;
-          height: 0.3em;
-
-          border-radius: 1em;
-
-          transform: translateY(-60%);
+        > .fieldGroup {
+          display: flex;
+          @media (max-width: $small-mq-width) {
+            flex-direction: column;
+          }
+          gap: 1em;
         }
 
-        &::before {
-          left: 0;
+        .field {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+
+          font-size: 0.95em;
+
+          width: 100%;
+
+          transition: color $transition-time;
+
+          > label {
+            font-weight: 500;
+          }
+
+          > input,
+          textarea {
+            font-size: 0.9em;
+            font-weight: 500;
+
+            background-color: $off-white;
+
+            min-width: 0;
+
+            padding: 0.55em 0.85em;
+            border: none;
+            border-radius: 0.3em;
+
+            &:focus {
+              outline: 3px auto $cyan;
+            }
+          }
+
+          > textarea {
+            @include Scrollbar(1em, 0.3em);
+
+            min-height: 8.5em;
+
+            resize: none;
+          }
         }
 
-        &::after {
-          right: 0;
+        > button {
+          @include Button(
+            $cyan,
+            inherit,
+            100%,
+            2.7em,
+            none,
+            0.3em,
+            transparent,
+            inherit,
+            0.15em solid $cyan
+          );
+          gap: 0.5em;
+
+          font-size: 0.9em;
+
+          margin-top: 0.5em;
         }
       }
 
-      > .linksGroup {
+      > .linksContainer {
         display: flex;
-        gap: 4em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
 
-        margin-inline: 3.2em;
+        font-size: 0.85em;
+
+        .link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5em;
+
+          color: inherit;
+
+          text-decoration: underline;
+          cursor: pointer;
+
+          transition: color $transition-time;
+
+          &:hover {
+            color: $cyan;
+          }
+
+          > a {
+            color: inherit;
+          }
+        }
+
+        > .separator {
+          position: relative;
+
+          text-align: center;
+          font-style: italic;
+          font-weight: 500;
+
+          width: 100%;
+
+          transition: color $transition-time;
+
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+
+            background-color: $cyan;
+
+            width: 45%;
+            height: 0.3em;
+
+            border-radius: 1em;
+
+            transform: translateY(-60%);
+          }
+
+          &::before {
+            left: 0;
+          }
+
+          &::after {
+            right: 0;
+          }
+        }
+
+        > .linksGroup {
+          display: flex;
+          gap: 4em;
+
+          margin-inline: 2.3em;
+
+          @media (max-width: $small-mq-width) {
+            gap: 3.2em;
+
+            margin-inline: 2em;
+          }
+        }
       }
     }
   }
