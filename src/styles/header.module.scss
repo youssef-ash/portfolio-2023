@@ -29,18 +29,17 @@
 
       @include Button(
         transparent,
+        inherit,
         3em,
         3em,
         none,
         100%,
         transparent,
-        red,
+        null,
         none
       );
 
       > svg {
-        fill: $off-white;
-
         transition: fill $transition-time;
       }
 
@@ -53,7 +52,6 @@
 
     .list {
       display: flex;
-      gap: 0.5em;
 
       text-transform: capitalize;
 
@@ -64,7 +62,9 @@
         text-decoration: none;
         color: inherit;
 
-        padding: 1em;
+        padding: 1em 1.2em;
+
+        transition: color $transition-time;
 
         &.active {
           color: $cyan;
@@ -114,13 +114,24 @@
   }
 }
 
-@media (max-width: $media-query-width) {
+@media (max-width: $medium-mq-width) {
   .header {
     &::after {
       width: $content-width;
     }
     > .container {
       width: $content-width;
+    }
+  }
+}
+
+@media (max-width: $small-mq-width) {
+  .header {
+    &::after {
+      width: $small-content-width;
+    }
+    > .container {
+      width: $small-content-width;
     }
   }
 }
