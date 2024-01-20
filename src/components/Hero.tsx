@@ -3,50 +3,46 @@ import { motion } from "framer-motion";
 import HeroImage from "@componentUtils/HeroImage";
 import styles from "@styles/hero.module.scss";
 
+const textContainer = {
+  hidden: {},
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.8,
+      staggerChildren: 0.4,
+    },
+  },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      ease: "easeInOut",
+      duration: 1.8,
+    },
+  },
+};
+
 export default function Hero() {
   return (
     <section id="home" className={styles.container}>
-      <div className={styles.heroType}>
-        <motion.h1
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{
-            type: "spring",
-            bounce: 0.4,
-            ease: "easeInOut",
-            duration: 1.8,
-            delay: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          I'm Youssef Ahmed
-        </motion.h1>
-        <motion.h2
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{
-            type: "spring",
-            bounce: 0.4,
-            ease: "easeInOut",
-            duration: 1.8,
-            delay: 1.2,
-          }}
-          viewport={{ once: true }}
-        >
+      <motion.div
+        className={styles.heroType}
+        variants={textContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.h1 variants={textVariants}>I'm Youssef Ahmed</motion.h1>
+        <motion.h2 variants={textVariants}>
           A Professional Web <br /> Developer
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{
-            type: "spring",
-            bounce: 0.3,
-            ease: "easeInOut",
-            duration: 1.8,
-            delay: 1.6,
-          }}
-          viewport={{ once: true }}
-        >
+        <motion.p variants={textVariants}>
           I design and develop websites that are visually appealing,
           user-friendly, and optimized for performance.
         </motion.p>
@@ -74,7 +70,7 @@ export default function Hero() {
             Download CV
           </a>
         </motion.div>
-      </div>
+      </motion.div>
       <motion.div
         className={styles.imageContainer}
         initial={{ opacity: 0, scale: 0 }}
