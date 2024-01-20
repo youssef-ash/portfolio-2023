@@ -13,7 +13,7 @@ export default function HeroImage() {
       whileInView={{ opacity: 1, y: "1.72em" }}
       transition={{
         type: "spring",
-        bounce: 0.4,
+        bounce: 0.35,
         ease: "easeInOut",
         duration: 2.2,
         delay: 1,

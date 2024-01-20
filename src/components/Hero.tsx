@@ -21,9 +21,8 @@ const textVariants = {
     x: 0,
     transition: {
       type: "spring",
-      bounce: 0.4,
+      stiffness: 70,
       ease: "easeInOut",
-      duration: 1.8,
     },
   },
 };
@@ -51,9 +50,8 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{
-            ease: "easeInOut",
-            duration: 0.6,
-            delay: 2,
+            duration: 0.7,
+            delay: 2.1,
           }}
           viewport={{ once: true }}
         >
