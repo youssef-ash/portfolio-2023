@@ -13,7 +13,8 @@ html {
 
 body {
   --bg: #e6f4f1;
-  --card-bg: #ceeae4;
+  --card-bg: #c8e8e0;
+  --text-color: #151535;
 
   @include Scrollbar();
   display: flex;
@@ -31,6 +32,7 @@ body {
   &.dark {
     --bg: #13131d;
     --card-bg: #202032;
+    --text-color: #e6f4f1;
 
     background-color: $dark-blue;
     color: $off-white;
