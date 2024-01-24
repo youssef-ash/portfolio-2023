@@ -8,7 +8,6 @@ export default function HeroImage() {
       src={"/images/avatar.png"}
       alt="Avatar of Youssef"
       draggable={false}
-      fetchPriority="high"
       initial={{ opacity: 0, y: "7em" }}
       whileInView={{ opacity: 1, y: "1.72em" }}
       transition={{
