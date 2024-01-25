@@ -1,5 +1,3 @@
-import { motion, useInView } from "framer-motion";
-
 import { useState, useRef, FormEvent } from "react";
 import {
   FaPaperPlane,
@@ -8,6 +6,7 @@ import {
   FaWhatsapp,
   FaGithub,
 } from "react-icons/fa6";
+import { motion, useInView } from "framer-motion";
 
 import SectionTitle from "@componentUtils/SectionTitle";
 import styles from "@styles/contact.module.scss";
@@ -17,7 +16,9 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, {
+    once: true,
+  });
 
   const validateEmail = (email: string) => {
     return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email);
@@ -46,8 +47,7 @@ export default function Contact() {
           }
           transition={{
             type: "spring",
-            bounce: 0.3,
-            duration: 0.7,
+            stiffness: 95,
             delay: 0.3,
           }}
         >
@@ -59,8 +59,7 @@ export default function Contact() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
                 transition={{
                   type: "spring",
-                  bounce: 0.4,
-                  duration: 1.5,
+                  stiffness: 130,
                   delay: 0.6,
                 }}
               >
@@ -77,8 +76,7 @@ export default function Contact() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
                 transition={{
                   type: "spring",
-                  bounce: 0.4,
-                  duration: 1.5,
+                  stiffness: 130,
                   delay: 0.6,
                 }}
               >
@@ -96,8 +94,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
               transition={{
                 type: "spring",
-                bounce: 0.4,
-                duration: 1.5,
+                stiffness: 130,
                 delay: 0.9,
               }}
             >
@@ -116,8 +113,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
               transition={{
                 type: "spring",
-                bounce: 0.4,
-                duration: 1.5,
+                stiffness: 130,
                 delay: 1.2,
               }}
             >
@@ -132,8 +128,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
             transition={{
               type: "spring",
-              bounce: 0.4,
-              duration: 1.5,
+              stiffness: 130,
               delay: 1.5,
             }}
           >
