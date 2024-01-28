@@ -4,23 +4,25 @@ import styles from "@styles/work.module.scss";
 import { Ref, forwardRef } from "react";
 
 interface ProjectProps {
+  images: StaticImageData[];
   imagePlacement: ProjectImagePlacementT;
   title: string;
   description: string;
   liveLink: string;
   githubLink: string;
-  imageSrc: StaticImageData;
+  changeSelected: (images: StaticImageData[]) => void;
 }
 
 const Project = forwardRef(
   (
     {
+      images,
       imagePlacement,
       title,
       description,
       liveLink,
       githubLink,
-      imageSrc,
+      changeSelected,
     }: ProjectProps,
     ref: Ref<HTMLDivElement>
   ) => {
@@ -46,9 +48,12 @@ const Project = forwardRef(
             </button>
           </div>
         </span>
-        <span className={styles.imgContainer}>
+        <span
+          className={styles.imgContainer}
+          onClick={() => changeSelected(images)}
+        >
           <Image
-            src={imageSrc}
+            src={images[0]}
             alt="project image"
             fill={true}
             sizes=""
