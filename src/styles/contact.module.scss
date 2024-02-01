@@ -43,11 +43,12 @@
 
         padding-inline: 8em;
 
+        @media (max-width: $small-mq-width) {
+          padding-inline: 3.7em;
+        }
+
         > .fieldGroup {
           display: flex;
-          @media (max-width: $small-mq-width) {
-            flex-direction: column;
-          }
           gap: 1em;
         }
 
@@ -128,19 +129,14 @@
           align-items: center;
           gap: 0.5em;
 
+          text-decoration: underline;
           color: inherit;
 
-          text-decoration: underline;
-          cursor: pointer;
-
           transition: color $transition-time;
+          cursor: pointer;
 
           &:hover {
             color: $cyan;
-          }
-
-          > a {
-            color: inherit;
           }
         }
 

@@ -55,11 +55,10 @@ export default function Contact() {
             <div className={styles.fieldGroup}>
               <motion.div
                 className={styles.field}
-                initial={{ opacity: 0, y: -15 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+                initial={{ opacity: 0, y: -17 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -17 }}
                 transition={{
-                  type: "spring",
-                  stiffness: 130,
+                  duration: 0.38,
                   delay: 0.6,
                 }}
               >
@@ -72,17 +71,17 @@ export default function Contact() {
               </motion.div>
               <motion.div
                 className={styles.field}
-                initial={{ opacity: 0, y: -15 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+                initial={{ opacity: 0, y: -17 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -17 }}
                 transition={{
-                  type: "spring",
-                  stiffness: 130,
+                  duration: 0.38,
                   delay: 0.6,
                 }}
               >
                 <label htmlFor="email">Your email:</label>
                 <input
                   id="email"
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
@@ -90,11 +89,10 @@ export default function Contact() {
             </div>
             <motion.div
               className={styles.field}
-              initial={{ opacity: 0, y: -15 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+              initial={{ opacity: 0, y: -17 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -17 }}
               transition={{
-                type: "spring",
-                stiffness: 130,
+                duration: 0.38,
                 delay: 0.9,
               }}
             >
@@ -109,11 +107,10 @@ export default function Contact() {
             <motion.button
               onClick={handleSubmit}
               disabled={!fieldsFilled}
-              initial={{ opacity: 0, y: -15 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+              initial={{ opacity: 0, y: -17 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -17 }}
               transition={{
-                type: "spring",
-                stiffness: 130,
+                duration: 0.38,
                 delay: 1.2,
               }}
             >
@@ -124,45 +121,49 @@ export default function Contact() {
 
           <motion.div
             className={styles.linksContainer}
-            initial={{ opacity: 0, y: -15 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+            initial={{ opacity: 0, y: -17 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -17 }}
             transition={{
-              type: "spring",
-              stiffness: 130,
+              duration: 0.38,
               delay: 1.5,
             }}
           >
-            <span className={styles.link}>
+            <a
+              className={styles.link}
+              href="mailto:youssefashwal@outlook.com"
+              target="_blank"
+            >
               <FaEnvelope size={"1.2em"} />
-              <a href="mailto:youssefashwal@outlook.com" target="_blank">
-                youssefashwal@outlook.com
-              </a>
-            </span>
+              youssefashwal@outlook.com
+            </a>
 
             <div className={styles.separator}>OR</div>
 
             <div className={styles.linksGroup}>
-              <span className={styles.link}>
+              <a
+                className={styles.link}
+                href="https://www.linkedin.com/in/youssef-ash/"
+                target="_blank"
+              >
                 <FaLinkedin size={"1.3em"} />
-                <a
-                  href="https://www.linkedin.com/in/youssef-ash/"
-                  target="_blank"
-                >
-                  My LinkedIn
-                </a>
-              </span>
-              <span className={styles.link}>
+                My LinkedIn
+              </a>
+              <a
+                className={styles.link}
+                href="https://wa.me/2001111162356"
+                target="_blank"
+              >
                 <FaWhatsapp size={"1.4em"} />
-                <a href="" target="_blank">
-                  My Whatsapp
-                </a>
-              </span>
-              <span className={styles.link}>
+                My Whatsapp
+              </a>
+              <a
+                className={styles.link}
+                href="https://github.com/youssef-ash"
+                target="_blank"
+              >
                 <FaGithub size={"1.3em"} />
-                <a href="https://github.com/youssef-ash" target="_blank">
-                  My Github
-                </a>
-              </span>
+                My Github
+              </a>
             </div>
           </motion.div>
         </motion.div>
