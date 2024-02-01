@@ -1,10 +1,12 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 
 import SectionTitle from "@componentUtils/SectionTitle";
 import Project from "@componentUtils/Project";
-import Image from "/public/images/nile_visits/nile_visits1.png";
+import Data from "@utils/projectData";
 import styles from "@styles/work.module.scss";
+import Gallery from "@componentUtils/Gallery";
+import { StaticImageData } from "next/image";
 
 const projectVariant = {
   hidden: { opacity: 0, y: -30 },
@@ -18,8 +20,32 @@ const projectVariant = {
 const MotionProject = motion(Project);
 
 export default function Work() {
+  const [selected, setSelected] = useState<StaticImageData[] | null>(null);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
+
+  const changeSelected = (images: StaticImageData[]) => {
+    setSelected(images);
+  };
+
+  const projects = Data.map((project, i) => {
+    return (
+      <MotionProject
+        key={project.id}
+        images={project.images}
+        imagePlacement={i % 2 === 0 ? "right" : "left"}
+        title={project.title}
+        description={project.description}
+        liveLink={project.liveLink}
+        githubLink={project.githubLink}
+        changeSelected={changeSelected}
+        variants={projectVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: i === 0 ? 0.1 : 0.35 }}
+      />
+    );
+  });
 
   return (
     <section id="work" className={styles.container} ref={ref}>
@@ -27,76 +53,20 @@ export default function Work() {
         className={styles.title}
         text="My Work"
         inView={inView}
-        delay={2.1}
+        delay={2}
       />
 
       <motion.div
         className={styles.projects}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 2.6 }}
+        transition={{ duration: 0.7, delay: 2.4 }}
       >
-        <MotionProject
-          imagePlacement="right"
-          title="Nile Orientations App"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-          liveLink=""
-          githubLink=""
-          imageSrc={Image}
-          variants={projectVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        />
-        <MotionProject
-          imagePlacement="left"
-          title="Nile Visits App"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-          liveLink=""
-          githubLink=""
-          imageSrc={Image}
-          variants={projectVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
-        />
-        <MotionProject
-          imagePlacement="right"
-          title="Online Veterinary Clinic"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-          liveLink=""
-          githubLink=""
-          imageSrc={Image}
-          variants={projectVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
-        />
-        <MotionProject
-          imagePlacement="left"
-          title="My Portfolio"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-          liveLink=""
-          githubLink=""
-          imageSrc={Image}
-          variants={projectVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
-        />
-        <MotionProject
-          imagePlacement="right"
-          title="Trivia App"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-          liveLink=""
-          githubLink=""
-          imageSrc={Image}
-          variants={projectVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
-        />
+        {projects}
       </motion.div>
+      <AnimatePresence>
+        {selected && <Gallery images={selected} setSelected={setSelected} />}
+      </AnimatePresence>
     </section>
   );
 }

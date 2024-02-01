@@ -2,6 +2,7 @@ import styles from "@styles/work.module.scss";
 import { StaticImageData } from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 interface GalleryProps {
   images: StaticImageData[];
@@ -21,10 +22,17 @@ export default function Gallery({ images, setSelected }: GalleryProps) {
 
   return (
     <div className={styles.galleryCover} onClick={() => setSelected(null)}>
-      <div
+      <motion.div
         className={styles.imagesContainer}
         onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.25 }}
       >
+        <p>
+          {active + 1}/{images.length}
+        </p>
         <button id={styles.prev} className={styles.button} onClick={handlePrev}>
           <FaAngleLeft size="1.45em" />
         </button>
@@ -34,7 +42,7 @@ export default function Gallery({ images, setSelected }: GalleryProps) {
         <button id={styles.next} className={styles.button} onClick={handleNext}>
           <FaAngleRight size="1.45em" />
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }
