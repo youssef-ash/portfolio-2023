@@ -1,7 +1,9 @@
 import { ProjectImagePlacementT } from "@utils/types";
 import Image, { StaticImageData } from "next/image";
 import styles from "@styles/work.module.scss";
-import { Ref, forwardRef } from "react";
+import { Ref, forwardRef, useState } from "react";
+import { FaImages } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 interface ProjectProps {
   images: StaticImageData[];
@@ -26,12 +28,16 @@ const Project = forwardRef(
     }: ProjectProps,
     ref: Ref<HTMLDivElement>
   ) => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
-      <div
+      <motion.div
         className={`${styles.project} ${
           imagePlacement === "left" ? styles.flipped : ""
         } `}
         ref={ref}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
       >
         <span className={styles.type}>
           <h4>{title}</h4>
@@ -52,6 +58,16 @@ const Project = forwardRef(
           className={styles.imgContainer}
           onClick={() => changeSelected(images)}
         >
+          {isHovered && (
+            <motion.span
+              className={styles.icon}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FaImages size="1.65rem" />
+            </motion.span>
+          )}
           <Image
             src={images[0]}
             alt="project image"
@@ -60,7 +76,7 @@ const Project = forwardRef(
             draggable={false}
           />
         </span>
-      </div>
+      </motion.div>
     );
   }
 );
