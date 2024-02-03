@@ -44,13 +44,19 @@ const Project = forwardRef(
           <p>{description}</p>
           <div className={styles.buttonsContainer}>
             <button className={styles.liveButton} disabled={liveLink === ""}>
-              Live Site
+              {liveLink === "" ? (
+                "Live Site"
+              ) : (
+                <a href={liveLink} target="_blank">
+                  Live Site
+                </a>
+              )}
             </button>
             <button
               className={styles.githubButton}
               disabled={githubLink === ""}
             >
-              Code
+              {githubLink === "" ? "Code" : <a href={githubLink}>Code</a>}
             </button>
           </div>
         </span>
