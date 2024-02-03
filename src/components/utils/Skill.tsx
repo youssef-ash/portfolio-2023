@@ -10,7 +10,7 @@ interface SkillProps {
 export default function Skill({ imageSrc, name, skillVariant }: SkillProps) {
   return (
     <motion.span variants={skillVariant}>
-      <Image src={imageSrc} alt={`${name} logo`} width={0} height={0} />
+      <Image src={imageSrc} alt={`${name} logo`} width={0} height={0} draggable={false}/>
       <span>{name}</span>
     </motion.span>
   );
