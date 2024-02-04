@@ -37,6 +37,17 @@
 
       transition: outline $transition-time, background-color $transition-time;
 
+      img {
+        cursor: pointer;
+      }
+
+      &:hover {
+        img {
+          position: relative;
+          filter: brightness(0.7);
+        }
+      }
+
       @media (min-width: $small-mq-width) {
         &:hover,
         &:focus-within {
@@ -67,12 +78,18 @@
         }
 
         > p {
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+
           font-size: 0.75em;
           font-weight: 300;
           line-height: 1.5em;
           text-wrap: balance;
 
           transition: color $transition-time;
+          overflow: hidden;
         }
 
         > .buttonsContainer {
@@ -95,6 +112,7 @@
               inherit,
               0.15em solid $cyan
             );
+            letter-spacing: 0.03em;
           }
 
           > .githubButton {
@@ -109,6 +127,19 @@
               $off-white,
               0.15em solid $cyan
             );
+            letter-spacing: 0.03em;
+          }
+
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+            color: inherit;
+
+            width: 100%;
+            height: 100%;
           }
         }
       }
@@ -127,6 +158,20 @@
           border-radius: 0.5em;
 
           transition: scale $transition-time, filter $transition-time;
+        }
+
+        > .icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+
+          width: 2em;
+          height: 2em;
+
+          z-index: 1;
+
+          cursor: pointer;
+          transform: translate(-50%, -50%);
         }
       }
 
@@ -191,6 +236,88 @@
           > .type {
             margin: unset;
           }
+        }
+      }
+    }
+  }
+
+  > .galleryCover {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10em;
+    background-color: rgba(0, 0, 0, 0.85);
+
+    z-index: 2;
+
+    > .imagesContainer {
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.2em;
+
+      > p {
+        position: absolute;
+        top: -2.7em;
+
+        font-size: 1.05em;
+        font-weight: 500;
+      }
+
+      > .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: transparent;
+        color: $off-white;
+
+        width: 3.3em;
+        height: 3.3em;
+
+        border: none;
+        border-radius: 100%;
+
+        cursor: pointer;
+        transition: background-color $transition-time;
+
+        &:hover {
+          background-color: $cyan;
+        }
+
+        @media (max-width: $small-mq-width) {
+          position: absolute;
+          bottom: -5em;
+
+          &#next {
+            right: 13em;
+          }
+
+          &#prev {
+            left: 13em;
+          }
+        }
+      }
+
+      > .images {
+        display: flex;
+
+        width: 75vw;
+        min-width: 36em;
+        max-width: 58em;
+        border-radius: 0.5em;
+
+        overflow: hidden;
+
+        > img {
+          width: 100%;
+          height: 100%;
         }
       }
     }
