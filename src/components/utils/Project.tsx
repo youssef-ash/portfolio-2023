@@ -29,8 +29,6 @@ function ProjectComponent(
 ) {
   const [isHovered, setIsHovered] = useState(false);
 
-  console.log(images);
-
   return (
     <motion.div
       className={`${styles.project} ${

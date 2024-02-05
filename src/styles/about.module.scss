@@ -80,6 +80,8 @@
           &:nth-child(3)::after {
             top: 0.25em;
             box-shadow: 0 0.4em 0 var(--bg), 0 -0.4em 0 var(--bg);
+
+            transition: box-shadow $transition-time;
           }
 
           > a {
