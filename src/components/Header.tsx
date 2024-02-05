@@ -1,7 +1,7 @@
-import styles from "@styles/header.module.scss";
-import { HeaderProps } from "@utils/types";
-
 import { BsSunFill, BsFillMoonFill } from "react-icons/bs";
+
+import { HeaderProps } from "@utils/types";
+import styles from "@styles/header.module.scss";
 
 export default function Header({ theme, setTheme }: HeaderProps) {
   return (

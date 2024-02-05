@@ -102,15 +102,16 @@
     bottom: 0;
     left: 50%;
 
-    background-color: $off-white;
+    background-color: var(--text-color);
 
     width: 100%;
     max-width: calc($content-width + 12.5em);
     height: 0.15em;
 
-    border-radius: 1em;
+    border-radius: 10em;
 
     transform: translateX(-50%);
+    transition: background-color $transition-time;
   }
 }
 
