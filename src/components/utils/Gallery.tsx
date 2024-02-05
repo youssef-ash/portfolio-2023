@@ -42,6 +42,7 @@ export default function Gallery({ images, setSelected }: GalleryProps) {
             alt="project image"
             width={images[active].width}
             height={images[active].height}
+            priority
           />
         </div>
         <button id={styles.next} className={styles.button} onClick={handleNext}>
