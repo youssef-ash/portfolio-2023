@@ -41,6 +41,8 @@
           width: 0.29em;
           height: 95%;
 
+          z-index: -1;
+
           @media (max-width: $medium-mq-width) {
             width: 0.3em;
           }
@@ -65,6 +67,9 @@
           > .dot {
             top: 0.2em;
             box-shadow: 0 0.4em 0 var(--bg), 0 -0.4em 0 var(--bg);
+
+            z-index: -1;
+            transition: box-shadow $transition-time;
           }
         }
 
@@ -76,13 +81,6 @@
           line-height: 1.75em;
 
           transition: color $transition-time;
-
-          &:nth-child(3)::after {
-            top: 0.25em;
-            box-shadow: 0 0.4em 0 var(--bg), 0 -0.4em 0 var(--bg);
-
-            transition: box-shadow $transition-time;
-          }
 
           > a {
             font-weight: 700;
