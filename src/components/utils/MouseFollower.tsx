@@ -36,7 +36,7 @@ export default function MouseFollower() {
     return () => {
       window.removeEventListener("mousemove", setFromEvent);
     };
-  }, []);
+  }, [isVisible]);
 
   return (
     <div

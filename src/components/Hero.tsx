@@ -37,7 +37,7 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.h1 variants={textVariants}>I'm Youssef Ahmed</motion.h1>
+        <motion.h1 variants={textVariants}>I&apos;m Youssef Ahmed</motion.h1>
         <motion.h2 variants={textVariants}>
           A Professional Web <br /> Developer
         </motion.h2>

@@ -85,13 +85,13 @@ export default function About() {
                 delay: 0.46,
               }}
             >
-              Hello, my name is Youssef and I'm from Egypt. I love the process
-              of turning ideas into reality through web development and watching
-              them come to life on the internet. As a freelancer, I've had the
-              opportunity to work with a variety of clients and projects, and
-              I've gained valuable experience in the industry. I'm now looking
-              to take my skills to the next level and transition to a full-time
-              role as a Front-End developer.
+              Hello, my name is Youssef and I&apos;m from Egypt. I love the
+              process of turning ideas into reality through web development and
+              watching them come to life on the internet. As a freelancer,
+              I&apos;ve had the opportunity to work with a variety of clients
+              and projects, and I&apos;ve gained valuable experience in the
+              industry. I&apos;m now looking to take my skills to the next level
+              and transition to a full-time role as a Front-End developer.
             </motion.p>
           </div>
 
@@ -113,14 +113,14 @@ export default function About() {
                 delay: 0.78,
               }}
             >
-              Feel free to check out my <a href="#work">Work</a>. I'm always
-              looking for new projects to tackle and challenges to overcome, and
-              if you're interested in hiring me, have a project in mind or just
-              want to say hello, please don't hesitate to contact me through
-              email or other means, you'll find my contact info in the{" "}
-              <a href="#contact">Contact section</a>. Thank you for taking the
-              time to learn a little bit about me, and I'm looking forward to
-              connecting with you soon.
+              Feel free to check out my <a href="#work">Work</a>. I&apos;m
+              always looking for new projects to tackle and challenges to
+              overcome, and if you&apos;re interested in hiring me, have a
+              project in mind or just want to say hello, please don&apos;t
+              hesitate to contact me through email or other means, you&apos;ll
+              find my contact info in the <a href="#contact">Contact section</a>
+              . Thank you for taking the time to learn a little bit about me,
+              and I&apos;m looking forward to connecting with you soon.
             </motion.p>
           </div>
           <div className={styles.dottedSectionContainer}>

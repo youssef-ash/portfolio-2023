@@ -1,5 +1,5 @@
 import styles from "@styles/work.module.scss";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
@@ -37,7 +37,12 @@ export default function Gallery({ images, setSelected }: GalleryProps) {
           <FaAngleLeft size="1.45em" />
         </button>
         <div className={styles.images}>
-          <img src={images[active].src}></img>
+          <Image
+            src={images[active].src}
+            alt="project image"
+            width={images[active].width}
+            height={images[active].height}
+          />
         </div>
         <button id={styles.next} className={styles.button} onClick={handleNext}>
           <FaAngleRight size="1.45em" />
