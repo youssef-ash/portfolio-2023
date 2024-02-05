@@ -10,7 +10,7 @@ import MouseFollower from "@componentUtils/MouseFollower";
 import { Theme } from "@utils/types";
 
 export default function Home() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
