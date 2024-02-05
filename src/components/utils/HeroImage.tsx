@@ -13,7 +13,6 @@ export default function HeroImage() {
       transition={{
         type: "spring",
         bounce: 0.35,
-        ease: "easeInOut",
         duration: 2.2,
         delay: 1,
         opacity: { duration: 0.8, delay: 1 },
