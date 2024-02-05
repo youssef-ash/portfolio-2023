@@ -1,159 +1,169 @@
 @import "./utils.scss";
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  margin-top: -1.5em;
 
-  margin-top: -0.5em;
-
-  > .title {
-    @include SectionTitle;
-  }
-
-  > .typeContainer {
-    position: relative;
+  > .content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
-    gap: 1.6em;
 
-    padding-left: 2.2em;
-    margin-top: 2.5em;
+    > .title {
+      @include SectionTitle;
+    }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0.4em;
+    > .typeContainer {
+      position: relative;
 
-      background-image: url("/line.svg");
-      background-size: contain;
-      background-repeat: repeat-y;
-      background-size: 100% 1.85em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.6em;
 
-      width: 0.29em;
-      height: 95%;
+      padding-left: 2.2em;
+      margin-top: 2em;
 
-      @media (max-width: $media-query-width) {
-        left: 0.45em;
+      > .typeWrapper {
+        position: absolute;
+        inset: 0;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0.4em;
+
+          background-image: url("/line.svg");
+          background-size: contain;
+          background-repeat: repeat-y;
+          background-size: 100% 1.85em;
+
+          width: 0.29em;
+          height: 95%;
+
+          @media (max-width: $medium-mq-width) {
+            width: 0.3em;
+          }
+        }
+      }
+
+      > .dottedSectionContainer {
+        position: relative;
+        > .dot {
+          background-color: $cyan;
+          position: absolute;
+          top: 0.11em;
+          left: -2.2em;
+
+          width: 1.05em;
+          height: 1.05em;
+
+          border-radius: 100%;
+        }
+
+        &:nth-of-type(3) {
+          > .dot {
+            top: 0.2em;
+            box-shadow: 0 0.4em 0 var(--bg), 0 -0.4em 0 var(--bg);
+          }
+        }
+
+        > p {
+          position: relative;
+
+          font-size: 0.85em;
+          font-weight: 400;
+          line-height: 1.75em;
+
+          transition: color $transition-time;
+
+          &:nth-child(3)::after {
+            top: 0.25em;
+            box-shadow: 0 0.4em 0 var(--bg), 0 -0.4em 0 var(--bg);
+          }
+
+          > a {
+            font-weight: 700;
+            text-wrap: nowrap;
+            color: $cyan;
+          }
+        }
+
+        &:has(h3) {
+          .dot {
+            top: 0.8em;
+          }
+        }
+
+        > .subTitle {
+          @include SectionTitle("sub");
+
+          margin-top: 0.7em;
+        }
       }
     }
 
-    > p {
-      position: relative;
+    > .skillsContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+      gap: 0.95em;
 
-      font-size: 0.85em;
-      font-weight: 400;
-      line-height: 1.75em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      width: 100%;
+
+      padding-inline: 2.2em;
+      margin-top: 1.8em;
 
       transition: color $transition-time;
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0.1em;
-        left: -2.56em;
-        background-color: $cyan;
-
-        width: 1.25em;
-        height: 1.25em;
-
-        border-radius: 100%;
-
-        z-index: 1;
-      }
-
-      &:nth-child(2)::after {
-        top: 0.25em;
-        box-shadow: 0 0.4em 0 $dark-blue, 0 -0.4em 0 $dark-blue;
-      }
-
-      > a {
-        font-weight: 700;
-        text-wrap: nowrap;
-        color: $cyan;
-      }
-    }
-
-    > h4 {
-      @include SectionTitle("sub");
-
-      margin-top: 0.7em;
-
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0.15em;
-        left: -2em;
-        background-color: $cyan;
-
-        width: 0.966em;
-        height: 0.966em;
-
-        border-radius: 100%;
-
-        z-index: 1;
-      }
-    }
-  }
-
-  > .skillsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
-    gap: 0.95em;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-    width: 100%;
-
-    padding-inline: 2.2em;
-    margin-top: 1.8em;
-
-    transition: color $transition-time;
-
-    > span {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0.8em;
-
-      font-size: 0.9em;
-
-      background-color: $bluish-gray;
-
-      width: 8.5em;
-      height: 8.5em;
-
-      border-radius: 0.8em;
-      outline: 0.2em solid transparent;
-
-      transition: outline $transition-time;
-
-      &:hover {
-        outline-color: $cyan;
-      }
-
-      > img {
-        position: absolute;
-        top: 50%;
-        top: 0;
-
-        width: 100%;
-        width: min-content;
-        height: 3.4em;
-
-        transform: translateY(45%);
-      }
-
       > span {
-        position: absolute;
-        bottom: 1.4em;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8em;
+
+        font-size: 0.9em;
+
+        @media (max-width: $small-mq-width) {
+          font-size: 0.8457em;
+        }
+
+        background-color: var(--card-bg);
+
+        width: 8.5em;
+        height: 8.5em;
+
+        border-radius: 0.8em;
+        outline: 0.2em solid transparent;
+
+        transition: outline $transition-time, background-color $transition-time;
+
+        &:hover {
+          outline-color: $cyan;
+        }
+
+        > img {
+          position: absolute;
+          top: 50%;
+          top: 0;
+
+          width: 100%;
+          width: min-content;
+          height: 3.4em;
+
+          transform: translateY(45%);
+        }
+
+        > span {
+          position: absolute;
+          bottom: 1.4em;
+        }
       }
     }
   }
